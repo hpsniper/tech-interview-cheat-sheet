@@ -1,82 +1,46 @@
 # Technical Interview Cheat Sheet
 _**Studying for a technical interview sucks, so here's a cheat sheet to help**_
 
-_Credit to [TSiege](https://github.com/TSiege) for the original Gist, [found here](https://gist.github.com/TSiege/cbb0507082bb18ff7e4b)_ 
+_Credit to [TSiege](https://github.com/TSiege) for the original Gist, [found here](https://gist.github.com/TSiege/cbb0507082bb18ff7e4b) and [harrisonlingren](https://github.com/harrisonlingren) for the updated version_ 
 
 This list is meant to be a both a quick guide and reference for further research into these topics.  It's basically a summary of that comp sci course you never took or forgot about, so there's no way it can cover everything in depth.
 
 ## Table of Contents
 - [Data Structure Basics](#data-structure-basics)
   * [Array](#array)
-    + [Definition:](#definition)
-    + [What you need to know:](#what-you-need-to-know)
-    + [Big O efficiency:](#big-o-efficiency)
   * [Linked List](#linked-list)
-    + [Definition:](#definition-1)
-    + [What you need to know:](#what-you-need-to-know-1)
-    + [Big O efficiency:](#big-o-efficiency-1)
+  * [Stack](#stack)
+  * [Queue](#queue)
   * [Hash Table or Hash Map](#hash-table-or-hash-map)
-    + [Definition:](#definition-2)
-    + [What you need to know:](#what-you-need-to-know-2)
-    + [Big O efficiency:](#big-o-efficiency-2)
   * [Binary Tree](#binary-tree)
-    + [Definition:](#definition-3)
-    + [What you need to know:](#what-you-need-to-know-3)
-    + [Big O efficiency:](#big-o-efficiency-3)
 - [Search Basics](#search-basics)
   * [Breadth First Search](#breadth-first-search)
-    + [Definition:](#definition-4)
-    + [What you need to know:](#what-you-need-to-know-4)
-    + [Big O efficiency:](#big-o-efficiency-4)
   * [Depth First Search](#depth-first-search)
-    + [Definition:](#definition-5)
-    + [What you need to know:](#what-you-need-to-know-5)
-    + [Big O efficiency:](#big-o-efficiency-5)
-    + [Breadth First Search Vs. Depth First Search](#breadth-first-search-vs-depth-first-search)
-    + [Nuances:](#nuances-)
 - [Efficient Sorting Basics](#efficient-sorting-basics)
   * [Merge Sort](#merge-sort)
-    + [Definition:](#definition-6)
-    + [What you need to know:](#what-you-need-to-know-6)
-    + [Big O efficiency:](#big-o-efficiency-6)
   * [Quicksort](#quicksort)
-    + [Definition:](#definition-7)
-    + [What you need to know:](#what-you-need-to-know-7)
-    + [Big O efficiency:](#big-o-efficiency-7)
   * [Bubble Sort](#bubble-sort)
-    + [Definition:](#definition-8)
-    + [What you need to know:](#what-you-need-to-know-8)
-    + [Big O efficiency:](#big-o-efficiency-8)
-    + [Merge Sort Vs. Quicksort](#merge-sort-vs-quicksort)
 - [Basic Types of Algorithms](#basic-types-of-algorithms)
   * [Recursive Algorithms](#recursive-algorithms)
-    + [Definition:](#definition-9)
-    + [What you need to know:](#what-you-need-to-know-9)
   * [Iterative Algorithms](#iterative-algorithms)
-    + [Definition:](#definition-10)
-    + [What you need to know:](#what-you-need-to-know-10)
-    + [Recursion Vs. Iteration](#recursion-vs-iteration)
-    + [Pseudo Code of Moving Through an Array (this is why iteration is used for this)](#pseudo-code-of-moving-through-an-array-this-is-why-iteration-is-used-for-this)
   * [Greedy Algorithm](#greedy-algorithm)
-    + [Definition:](#definition-11)
-    + [What you need to know:](#what-you-need-to-know-11)
-    + [Pseudo Code of a Greedy Algorithm to Find Largest Difference of any Two Numbers in an Array.](#pseudo-code-of-a-greedy-algorithm-to-find-largest-difference-of-any-two-numbers-in-an-array)
 
 ## Data Structure Basics
 
 ### Array
+![Array](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Array1.svg/320px-Array1.svg.png)
 #### Definition:
 - Stores data elements based on an sequential, most commonly 0 based, index.
 - Based on [tuples](http://en.wikipedia.org/wiki/Tuple) from set theory.
-- They are one of the oldest, most commonly used data structures.  
+- Any interview question involving an Array or a String could be asked using the other, use techniques from both.
   
 #### What you need to know:
 - Optimal for indexing; bad at searching, inserting, and deleting (except at the end).
 - **Linear arrays**, or one dimensional arrays, are the most basic.
   - Are static in size, meaning that they are declared with a fixed size.
 - **Dynamic arrays** are like one dimensional arrays, but have reserved space for additional elements.
-  - If a dynamic array is full, it copies it's contents to a larger array.
-- **Two dimensional arrays** have x and y indices like a grid or nested arrays.  
+  - If a dynamic array is full, it copies it's contents to a larger array. An O(n) operation.
+- **Two dimensional arrays** have x and y indices like a grid or nested arrays, also called a Matrix.  
   
 #### Big O efficiency:
 - Indexing:         Linear array: O(1),      Dynamic array: O(1)
@@ -86,21 +50,17 @@ This list is meant to be a both a quick guide and reference for further research
   
 
 ### Linked List
+![Linked List](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/CPT-LinkedLists-addingnode.svg/474px-CPT-LinkedLists-addingnode.svg.png)
 #### Definition: 
 - Stores data with **nodes** that point to other nodes.
   - Nodes, at its most basic it has one datum and one reference (another node).
-  - A linked list _chains_ nodes together by pointing one node's reference towards another node.  
+  - A linked list _chains_ nodes together by pointing one node's reference towards another node.
+  - Common interview questions (find the middle) involve setting up more than 1 pointer and advancing them at different rates
 
 #### What you need to know:
 - Designed to optimize insertion and deletion, slow at indexing and searching.
 - **Doubly linked list** has nodes that reference the previous node.
 - **Circularly linked list** is simple linked list whose **tail**, the last node, references the **head**, the first node.
-- **Stack**, commonly implemented with linked lists but can be made from arrays too.
-  - Stacks are **last in, first out** (LIFO) data structures.
-  - Made with a linked list by having the head be the only place for insertion and removal.
-- **Queues**, too can be implemented with a linked list or an array.
-  - Queues are a **first in, first out** (FIFO) data structure.
-  - Made with a doubly linked list that only removes from head and adds to tail.  
 
 #### Big O efficiency:
 - Indexing:         Linked Lists: O(n)
@@ -108,19 +68,36 @@ This list is meant to be a both a quick guide and reference for further research
 - Optimized Search: Linked Lists: O(n)
 - Insertion:        Linked Lists: O(1)  
 
+### Stack
+![Stack](https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Data_stack.svg/320px-Data_stack.svg.png)
+  - commonly implemented with linked lists but can be made from arrays too.
+  - Stacks are **last in, first out** (LIFO) data structures.
+  - When made with a linked list, the head is the only place for insertion and removal.
+  - Big O depends on implementation
+  
+### Queue
+![Queue](https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Data_Queue.svg/320px-Data_Queue.svg.png)
+  - Can be implemented with a linked list or an array.
+  - Queues are a **first in, first out** (FIFO) data structure.
+  - When made with a doubly linked list, only removes from head and adds to tail.  
+  - Big O depends on implementation
 
 ### Hash Table or Hash Map
+![Hash Table](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Hash_table_3_1_1_0_1_0_0_SP.svg/320px-Hash_table_3_1_1_0_1_0_0_SP.svg.png)
 #### Definition: 
 - Stores data with key value pairs.
 - **Hash functions** accept a key and return an output unique only to that specific key. 
   - This is known as **hashing**, which is the concept that an input and an output have a one-to-one correspondence to map information.
-  - Hash functions return a unique address in memory for that data.
+  - Hash functions return a unique id that is mapped to an index in an array via (id % array.length) to then store the data + the key
 
 #### What you need to know:
 - Designed to optimize searching, insertion, and deletion.
 - **Hash collisions** are when a hash function returns the same output for two distinct inputs.
-  - All hash functions have this problem.
-  - This is often accommodated for by having the hash tables be very large.
+  - Most hash functions have this problem. 
+  - This is often accommodated for by having the hash tables be very large and to pick a collision strategy
+    - [Open Addressing](https://en.wikipedia.org/wiki/Open_addressing) will locate collisions in the closest adjacent open address (will need to store the key and probe to find later)
+    - [Separate Chainging](https://en.wikipedia.org/wiki/Hash_table#Collision_resolution) creates buckets of linked lists to store elements with the same key, (will need to store the key and an O(n) search within that bucket to find later)
+  - Some problems lend themselves to [perfect hashing](https://en.wikipedia.org/wiki/Perfect_hash_function) that won't require a large array or collision resolution. Usually things that are already unique and aren't very large (letters in the alphabet)
 - Hashes are important for associative arrays and database indexing.
 
 #### Big O efficiency:
@@ -130,20 +107,20 @@ This list is meant to be a both a quick guide and reference for further research
 
 
 ### Binary Tree
+![Non-Search Binary Tree](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Binary_tree_array_indices.svg/320px-Binary_tree_array_indices.svg.png)
 #### Definition: 
-- Is a tree like data structure where every node has at most two children.
-  - There is one left and right child node.
+- Is a tree like data structure where every node has at most two children, a left and a right.
+- Not all Binary Trees are Binary Search Trees! Clarify!
 
 #### What you need to know:
 - Designed to optimize searching and sorting.
 - A **degenerate tree** is an unbalanced tree, which if entirely one-sided is a essentially a linked list.
-- They are comparably simple to implement than other data structures.
 - Used to make **binary search trees**.
   - A binary tree that uses comparable keys to assign which direction a child is.
-  - Left child has a key smaller than it's parent node.
-  - Right child has a key greater than it's parent node.
-  - There can be no duplicate node.
-  - Because of the above it is more likely to be used as a data structure than a binary tree.
+  - Left sub-tree (not just child) has all values smaller than its parent node.
+  - Right sub-tree (not just child) has all values greater than its parent node.
+  - Duplicates can pose problems, handle with storing the count along with the node or store all duplicates on the same side (right or left, just have to do it the same all the time) while still holding true to the requirement of larger right and smaller left sub trees
+  - Binary trees are generally more usefull and not much more expensive to use and implment then regular binary trees so are generally more ubiquitous. 
 
 #### Big O efficiency:
 - Indexing:  Binary Search Tree: O(log n)
@@ -154,17 +131,29 @@ This list is meant to be a both a quick guide and reference for further research
 ## Search Basics
 ### Breadth First Search
 #### Definition:
-- An algorithm that searches a tree (or graph) by searching levels of the tree first, starting at the root.
-  - It finds every node on the same level, most often moving left to right. 
-  - While doing this it tracks the children nodes of the nodes on the current level.
-  - When finished examining a level it moves to the left most node on the next level.
-  - The bottom-right most node is evaluated last (the node that is deepest and is farthest right of it's level). 
+- An algorithm that searches a tree (or graph) by searching levels of the tree first, starting at the root and moving down level by level
 
 #### What you need to know:
-- Optimal for searching a tree that is wider than it is deep.
-- Uses a queue to store information about the tree while it traverses a tree.
-  - Because it uses a queue it is more memory intensive than **depth first search**.
-  - The queue uses more memory because it needs to stores pointers
+- Optimal for searching a tree that is likely to have the answer near our head and/or has really long branches (even infinately long)
+[xkcd DFS](https://xkcd.com/761/)
+- Uses a queue to order the search when adding children to search 
+- Because it uses a queue it is sometimes slightly more memory intensive than **depth first search** that uses a stack
+ - pseudo code looks like this:
+ ```
+function BFS(targetValue) {
+  queue = new queue();
+  queue.add(root);
+  while(!queue.isEmpty()) {
+    currentNode = queue.dequeue();
+    if (currentNode.getValue() == targetValue) {
+      return true;
+    }
+    queue.addAll(currentNode.getChildren());
+  }
+  
+  return false;
+}
+```  
   
 #### Big O efficiency:
 - Search: Breadth First Search: O(|E| + |V|)
@@ -174,16 +163,29 @@ This list is meant to be a both a quick guide and reference for further research
 ### Depth First Search
 #### Definition:
 - An algorithm that searches a tree (or graph) by searching depth of the tree first, starting at the root.
-  - It traverses left down a tree until it cannot go further.
-  - Once it reaches the end of a branch it traverses back up trying the right child of nodes on that branch, and if possible left from the right children.
-  - When finished examining a branch it moves to the node right of the root then tries to go left on all it's children until it reaches the bottom.
-  - The right most node is evaluated last (the node that is right of all it's ancestors). 
+  - There are 3 orders, preorder (current, left, right), inorder (left, current, right) postorder (left, right, current)
+  - It traverses down then entire sub-tree until it cannot go further before backtracking to continue in the order choosen.
   
 #### What you need to know:
-- Optimal for searching a tree that is deeper than it is wide.
-- Uses a stack to push nodes onto.
-  - Because a stack is LIFO it does not need to keep track of the nodes pointers and is therefore less memory intensive than breadth first search.
-  - Once it cannot go further left it begins evaluating the stack.
+- Inorder used to print a binary tree in ascending order
+- Uses a stack to push nodes onto to order the search so sometimes slightly less memory intensive than BFS.
+ ```
+function DFSPreOrder(targetValue) {
+  stack = new stack();
+  stack.push(root);
+  while(!stack.isEmpty()) {
+    currentNode = stack.pop();
+    if (currentNode.getValue() == targetValue) {
+      return true;
+    }
+    stack.add(currentNode.getRightChild());
+    // left child will get popped first as it will be on top of our stack
+    stack.add(currentNode.getLeftChild());
+  }
+  
+  return false;
+}
+``` 
   
 #### Big O efficiency:
 - Search: Depth First Search: O(|E| + |V|)
@@ -192,16 +194,9 @@ This list is meant to be a both a quick guide and reference for further research
 
 
 #### Breadth First Search Vs. Depth First Search
-- The simple answer to this question is that it depends on the size and shape of the tree.
-  - For wide, shallow trees use Breadth First Search
-  - For deep, narrow trees use Depth First Search
-
-#### Nuances:
-  - Because BFS uses queues to store information about the nodes and its children, it could use more memory than is available on your computer.  (But you probably won't have to worry about this.)
-  - If using a DFS on a tree that is very deep you might go unnecessarily deep in the search. See [xkcd](http://xkcd.com/761/) for more information.
-  - Breadth First Search tends to be a looping algorithm.
-  - Depth First Search tends to be a recursive algorithm.
-
+- The simple answer to this question is that it depends on the size and shape of the tree and where we expect the answer to be, but normally when just searching a binary tree, BFS is the safer route.
+  - For wide, shallow trees, where answers tend to be close to our root use Breadth First Search
+  - For deep, narrow trees, where answers usually involve searching the whole tree in a DFS given order, use Depth First Search
 
 ## Efficient Sorting Basics
 ### Merge Sort
@@ -234,9 +229,9 @@ This list is meant to be a both a quick guide and reference for further research
 - Know that it halves the data set by the average continuously until all the information is sorted.
 
 #### Big O efficiency:
-- Best Case Sort: Merge Sort: O(n)
-- Average Case Sort: Merge Sort: O(n log n)
-- Worst Case Sort: Merge Sort: O(n^2)
+- Best Case Sort: Quick Sort: O(n)
+- Average Case Sort: Quick Sort: O(n log n)
+- Worst Case Sort: Quick Sort: O(n^2)
 
 ### Bubble Sort
 #### Definition:
