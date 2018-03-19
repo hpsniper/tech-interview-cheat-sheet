@@ -110,7 +110,7 @@ This list is meant to be a both a quick guide and reference for further research
 ![Non-Search Binary Tree](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Binary_tree_array_indices.svg/320px-Binary_tree_array_indices.svg.png)
 #### Definition: 
 - Is a tree like data structure where every node has at most two children, a left and a right.
-- Not all Binary Trees are Binary Search Trees! Clarify!
+- **Not all Binary Trees are Binary Search Trees! Clarify!**
 
 #### What you need to know:
 - Designed to optimize searching and sorting.
@@ -120,7 +120,7 @@ This list is meant to be a both a quick guide and reference for further research
   - Left sub-tree (not just child) has all values smaller than its parent node.
   - Right sub-tree (not just child) has all values greater than its parent node.
   - Duplicates can pose problems, handle with storing the count along with the node or store all duplicates on the same side (right or left, just have to do it the same all the time) while still holding true to the requirement of larger right and smaller left sub trees
-  - Binary trees are generally more usefull and not much more expensive to use and implment then regular binary trees so are generally more ubiquitous. 
+  - Binary Search trees are generally more usefull and not much more expensive to use and implment then regular binary trees so are generally more ubiquitous. 
 
 #### Big O efficiency:
 - Indexing:  Binary Search Tree: O(log n)
