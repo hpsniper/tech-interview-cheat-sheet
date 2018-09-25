@@ -24,6 +24,8 @@ This list is meant to be a both a quick guide and reference for further research
   * [Recursive Algorithms](#recursive-algorithms)
   * [Iterative Algorithms](#iterative-algorithms)
   * [Greedy Algorithm](#greedy-algorithm)
+- [Extra Reading](#extra-reading)
+  * [Ace the Coding Interview Every Time](https://medium.com/@nickciubotariu/ace-the-coding-interview-every-time-d169ce1fd3fc)
 
 ## Data Structure Basics
 
@@ -323,3 +325,5 @@ greedy algorithm (array)
 ```
 
 This algorithm never needed to compare all the differences to one another, saving it an entire iteration.
+
+## Extra Reading
